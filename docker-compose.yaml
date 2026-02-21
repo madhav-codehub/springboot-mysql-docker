@@ -2,21 +2,21 @@ version: '3.9'
 
 services:
 
-  mysql:
-    image: mysql:8.4
-    container_name: mysql-db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - app-network
+#  mysql:
+#    image: mysql:8.4
+#    container_name: mysql-db
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#      MYSQL_DATABASE: ${DB_NAME}
+#      MYSQL_USER: ${DB_USER}
+#      MYSQL_PASSWORD: ${DB_PASSWORD}
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - mysql_data:/var/lib/mysql
+#    networks:
+#      - app-network
   postgres:
     image: postgres:18
     container_name: postgres-db
@@ -47,7 +47,7 @@ services:
     networks:
       - app-network
 volumes:
-  mysql_data:
   postgres_data:
+#  mysql_data:
 networks:
   app-network:
