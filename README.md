@@ -124,3 +124,45 @@
 				“salary” : 60000.00
 			}’
 	curl -X DELETE http://localhost:8080/api/v1/employees/1
+
+
+### To deploy spring boot application into ec2 ubuntu instance
+
+    Create EC2 ubuntu instance in AWS web services
+    
+    Then execute the below commands:
+        sudo apt update -y && sudo apt upgrade -y
+        sudo apt install -y ca-certificates curl git
+
+####    To Install Docker:
+        
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+        echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+        sudo apt update -y
+
+####    To install Docker Engine and Compose plugin
+        sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+####    Start & enable Docker
+        sudo systemctl enable --now docker
+        sudo usermod -aG docker $USER
+
+####    Log out and log back in
+
+####    Quick Tests
+        docker --version
+        docker compose version
+        git --version
+##
+        Then Clone your repository
+        Go to your folder 
+        Run:
+            docker compose up -d --build
+        
