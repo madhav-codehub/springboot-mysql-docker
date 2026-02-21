@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: springboot-mysql-docker
+  datasource:
+    url: jdbc:mysql://${DB_HOST:mysql}:3306/${DB_NAME:ems_db}
+    username: ${DB_USER:ems_user}
+    password: ${DB_PASSWORD:ems_pass}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
